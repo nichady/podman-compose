@@ -1919,6 +1919,7 @@ def create_pods(compose, args):  # pylint: disable=unused-argument
     for pod in compose.pods:
         podman_args = [
             "create",
+            "--network=slirp4netns:port_handler=slirp4netns",
             "--name=" + pod["name"],
         ]
         if args.pod_args:
